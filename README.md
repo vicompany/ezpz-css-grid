@@ -1,4 +1,4 @@
-# EZPZ CSS Grid
+# EZPZ CSS Grid (BETA)
 ![dependencies](https://david-dm.org/vicompany/ezpz-css-grid.svg) [![npm](https://img.shields.io/npm/v/ezpz-css-grid.svg?style=flat-square)](https://www.npmjs.com/package/ezpz-css-grid)
 
 A lightweight Sass (.scss) css grid layout system that's easy to setup and offers a lot of customisation.
