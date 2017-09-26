@@ -1,0 +1,103 @@
+// ========================================================================== //
+// EZPZ CSS GRID - (VI Company) http://vicompany.nl
+// ========================================================================== //
+
+// Setup - Values may be edited - !!!DO NOT REMOVE THESE VARIABLES!!!
+// ========================================================================== //
+$ezpz-namespace: 		'.grid' !default;
+$ezpz-cell-namespace: 	'.cell' !default;
+
+$ezpz-columns: 			12 !default;
+$ezpz-col-gutter: 		1rem !default;
+$ezpz-row-gutter: 		0 !default;
+
+$ezpz-fractions: 		(1:2),
+				 		(1:3),
+				 		(2:3),
+				 		(1:4),
+				 		(3:4) !default;
+
+// Breakpoints
+$ezpz-breakpoints: 		('tiny':	25rem,
+						'small':	37.5rem,
+						'medium':	60rem,
+						'large':	90rem
+						) !default;
+
+// Optional grid features - Set to true to enable
+$ezpz-gutter-collapse: 	true !default;
+$ezpz-grid-align: 		true !default;
+
+// ==========================================================================
+// Grid generator - !!!DO NOT EDIT OR REMOVE ANTHING BELOW THIS LINE!!!
+// ==========================================================================
+
+// Utils
+// ==========================================================================
+@function format-breakpoint($breakpoint) {
+	@return if($breakpoint, '--' + $breakpoint + '-', '--');
+}
+
+@function format-modifier($key, $val) {
+	@return $key + '\\/' + $val;
+}
+
+// Cells
+// ==========================================================================
+@mixin create-cells($breakpoint: null) {
+	$breakpoint: format-breakpoint($breakpoint);
+
+	& > #{$ezpz-cell-namespace} {
+		@include create-cell();
+	}
+
+	@each $fraction in $ezpz-fractions {
+		@each $key, $val in $fraction {
+			$modifier: format-modifier($key, $val);
+
+			& > #{$ezpz-cell-namespace}#{$ezpz-cell-namespace}#{$breakpoint}#{$modifier} {
+				@include create-cell($ezpz-columns/$val);
+			}
+		}
+	}
+}
+
+@mixin create-cell($cell: $ezpz-columns) {
+	grid-column: span $cell;
+}
+
+@mixin create-responsive-cells() {
+	@each $breakpoint, $size in $ezpz-breakpoints {
+		@media (min-width: $size) {
+			@include create-cells($breakpoint);
+		}
+	}
+}
+
+//
+@mixin generate-grid() {
+	#{$ezpz-namespace} {
+		display: grid;
+		grid-template-columns: repeat($ezpz-columns, 1fr);
+
+		grid-column-gap: $ezpz-col-gutter;
+		grid-row-gap: $ezpz-row-gutter;
+
+		@if $ezpz-gutter-collapse {
+			&--collapsed-col 	{ grid-column-gap: 0; }
+  			&--collapsed-row 	{ grid-row-gap: 0; }
+		}
+
+		@if $ezpz-grid-align {
+			&--align-start 		{ align-items: start; }
+			&--align-end 		{ align-items: end; }
+			&--align-center 	{ align-items: center; }
+			&--align-stretch 	{ align-items: stretch; }
+		}
+
+		@include create-cells();
+		@include create-responsive-cells();
+	}
+}
+
+@include generate-grid();

@@ -1,0 +1,24 @@
+{
+  "name": "ezpz-css-grid",
+  "version": "1.0.0",
+  "description": "A lightweight Sass (.scss) css grid system that's easy to setup and offers a lot of customisation.",
+  "main": "lib/_ezpz-css-grid.scss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vicompany/ezpz-css-grid.git"
+  },
+  "keywords": [
+    "ezpz",
+    "css",
+    "grid",
+    "vi-company",
+    "sass"
+  ],
+  "author": "VI Company",
+  "contributors": [
+    "Sjors Spoorendonk (https://github.com/sjorsjes)"
+  ],
+  "license": "MIT",
+  "bugs": "https://github.com/vicompany/ezpz-css-grid/issues",
+  "homepage": "https://github.com/vicompany/ezpz-css-grid"
+}
