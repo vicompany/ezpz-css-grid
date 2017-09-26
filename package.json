@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/vicompany/ezpz-css-grid.git"
   },
+  "scripts": {
+    "test": "node-sass test/style.scss test/style.css"
+  },
   "keywords": [
     "ezpz",
     "css",
@@ -20,5 +23,8 @@
   ],
   "license": "MIT",
   "bugs": "https://github.com/vicompany/ezpz-css-grid/issues",
-  "homepage": "https://github.com/vicompany/ezpz-css-grid"
+  "homepage": "https://github.com/vicompany/ezpz-css-grid",
+  "devDependencies": {
+    "node-sass": "^4.5.3"
+  }
 }

@@ -14,11 +14,11 @@ A lightweight Sass (.scss) css grid layout system that's easy to setup and offer
 * Create and name your own breakpoints
 * Custom namespacing
 
-## Contributing
-### Build
+## Test
+Tests for invalid syntax and global errors
 ```
 npm install
-npm run build
+npm test
 ```
 
 ### Get in touch
