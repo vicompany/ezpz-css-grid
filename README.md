@@ -23,9 +23,15 @@ npm install
 npm test
 ```
 
-### Get in touch
+## Get in touch
 - Bugs / Suggestions: [open an issue](https://github.com/vicompany/ezpz-css-grid/issues)
 - Twitter: [@vicompany](https://twitter.com/vicompany)
+
+## Resources
+- https://css-tricks.com/snippets/css/complete-guide-grid/
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
+- https://mozilladevelopers.github.io/playground/
+- http://learncssgrid.com/
 
 ## License
 The EZPZ CSS Grid is licensed under the [MIT License](LICENSE.md).
