@@ -51,6 +51,10 @@ $ezpz-grid-align: 		true !default;
 		@include create-cell();
 	}
 
+	& > #{$ezpz-cell-namespace}#{$ezpz-cell-namespace}#{$breakpoint}1 {
+		@include create-cell($ezpz-columns);
+	}
+
 	@each $fraction in $ezpz-fractions {
 		@each $key, $val in $fraction {
 			$modifier: format-modifier($key, $val);
